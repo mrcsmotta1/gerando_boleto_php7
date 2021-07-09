@@ -17,5 +17,7 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "pecee/simple-router": "4.3.6.*"
+    }
 }
