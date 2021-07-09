@@ -1,0 +1,23 @@
+{
+    "name": "vendor/mrcsmotta1",
+    "description": "Gerando boletos com PHP 7.4",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Source\\": "source/"
+        },
+        "files": [
+            "source/Config.php"
+          ]
+    },
+    "authors": [
+        {
+            "name": "Marcos Motta",
+            "email": "mrcsmotta1@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "pecee/simple-router": "4.3.6.*"
+    }
+}
