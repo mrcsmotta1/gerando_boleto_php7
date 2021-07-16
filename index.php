@@ -2,10 +2,22 @@
 
 require __DIR__ . "/vendor/autoload.php";
 
-use Pecee\SimpleRouter\SimpleRouter;
+use CoffeeCode\Router\Router;
 
-SimpleRouter::get("/", function () {
-  return "<h1>Rotas com SimpleRouter</h1>";
+$router = new Router(URL_BASE);
+
+$router->group((null));
+
+$router->get("/", function ($data) {
+  echo '<h1>Ola mundo</h1>';
+  var_dump($data);
 });
 
-SimpleRouter::start();
+$router->dispatch();
+
+if ($router->error()) {
+  if ($router->error() == 404) {
+    header("HTTP/1.1 404 Not Found");
+    echo json_encode(['error' => 'route Not found']);
+  }
+}
