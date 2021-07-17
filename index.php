@@ -8,9 +8,8 @@ $router = new Router(URL_BASE);
 
 $router->group((null));
 
-$router->get("/", function ($data) {
-  echo '<h1>Ola mundo</h1>';
-  var_dump($data);
+$router->get("/", function () {
+  echo json_encode(['message' => 'home', "statusCode" => 200]);
 });
 
 $router->dispatch();
@@ -18,6 +17,6 @@ $router->dispatch();
 if ($router->error()) {
   if ($router->error() == 404) {
     header("HTTP/1.1 404 Not Found");
-    echo json_encode(['error' => 'route Not found']);
+    echo json_encode(['error' => 'route Not found', "statusCode" => 404]);
   }
 }
