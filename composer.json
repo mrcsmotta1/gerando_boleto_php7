@@ -18,10 +18,13 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "coffeecode/router": "^1.0"
+        "coffeecode/router": "^1.0",
+        "coffeecode/datalayer": "1.1.*",
+        "vlucas/phpdotenv": "5.3"
+
     },
     "require-dev": {
-        "phpunit/phpunit": "9",
-        "guzzlehttp/guzzle": "^7.0"
+        "phpunit/phpunit": "9.*",
+        "guzzlehttp/guzzle": "7"
     }
 }

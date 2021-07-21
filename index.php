@@ -1,10 +1,11 @@
 <?php
-
 require __DIR__ . "/vendor/autoload.php";
+
+use CoffeeCode\DataLayer\Connect;
 
 use CoffeeCode\Router\Router;
 
-$router = new Router(URL_BASE);
+$router = new Router(getenv('HOST'));
 
 $router->group((null));
 
