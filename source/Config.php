@@ -1,14 +1,17 @@
 <?php
 
-define("URL_BASE", "http://boleto.com");
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createUnsafeMutable(__DIR__);
+$dotenv->load();
 
 define("DATA_LAYER_CONFIG", [
-  "driver" => "mysql",
-  "host" => "localhost",
-  "port" => "3306",
-  "dbname" => "bancoBoleto",
-  "username" => "root",
-  "passwd" => "123456789",
+  "driver" => getenv('DBDRIVER'),
+  "host" => getenv('DBHOST'),
+  "port" => getenv('DBPORTS'),
+  "dbname" => getenv('DBNAME'),
+  "username" => getenv('USERNAME'),
+  "passwd" => getenv('PASSWD'),
   "options" => [
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
