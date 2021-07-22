@@ -9,11 +9,11 @@ use CoffeeCode\Router\Router;
 
 $router = new Router(getenv('HOST'));
 
+$router->namespace("Source\Controllers");
+
 //ACESSO A HOME DO PROJETO
 $router->group((null));
-$router->get("/", function () {
-  echo json_encode(['message' => 'home', "statusCode" => 200]);
-});
+$router->get("/", "Home:index");
 
 //GRUPO PARA ACESSAR OS ITENS RELACIONADOS AO BANCO PARA GERAR O BOLETO
 $router->group(('bank'));
@@ -29,9 +29,10 @@ $router->put("/change", function () {
 });
 
 //ACESSO PARA LISTAR OS BANCOS CADASTRADOS
-$router->get("/select", function () {
-  echo json_encode(['message' => 'select', "statusCode" => 200]);
-});
+$router->get("/list", "Banco:listAll");
+
+//ACESSO PARA LISTAR BANCO SELECIONADO
+$router->get("/list/{id}", "Banco:listID");
 
 //ACESSO PARA DELETAR O BANCO CADASTRADO
 $router->delete("/delete", function () {
